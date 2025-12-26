@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneath the Arch, At My Feet | roze.toes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Dark / mysterious palette */
+            --gold-100: #1a1412; 
+            --gold-300: #6b3f1a; 
+            --gold-500: #b0753b; 
+            --gold-700: #603214; 
+            --sky-100: #071021; 
+            --sky-300: #143447; 
+            --sky-500: #274a5b; 
+            --sky-700: #0a2a36; 
+            --text-dark: #e8eef2; 
+            --text-light: #a7b3bb; 
+            --bg-light: #0b1116; 
+            --bg-dark: #050609; 
+            --white: #f6f7f9; 
+            --navy: #081f36; 
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 6, 9, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(176, 117, 59, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold-500);
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { color: var(--gold-500); }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(5, 6, 9, 0.7), rgba(5, 6, 9, 0.7)), 
+                        url('https://images.unsplash.com/photo-1543952170-6927dcc8862d?auto=format&fit=crop&q=80&w=2000'); /* Subtle St Louis Backdrop */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gold-500);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section { padding: 8rem 2rem; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h2 { font-size: 2.5rem; color: var(--gold-500); margin-bottom: 3rem; text-align: center; text-transform: uppercase; }
+
+        /* About Panel */
+        .about-content {
+            background: var(--bg-light);
+            padding: 3.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(176, 117, 59, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Rates Styling */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border: 1px solid rgba(176, 117, 59, 0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover { border-color: var(--gold-500); transform: translateY(-5px); }
+        .price { font-size: 2.5rem; color: var(--gold-500); margin: 1.5rem 0; font-weight: bold; }
+        .service-card h3 { color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Form */
+        .contact-form { max-width: 600px; margin: 0 auto; background: var(--bg-light); padding: 2.5rem; border-radius: 4px; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; color: var(--gold-500); }
+        input, textarea { 
+            width: 100%; padding: 0.8rem; background: var(--bg-dark); border: 1px solid #333; 
+            color: white; border-radius: 2px; 
+        }
+        .btn { 
+            width: 100%; padding: 1rem; background: var(--gold-500); color: var(--white); 
+            border: none; text-transform: uppercase; font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn:hover { background: var(--gold-700); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 4rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">roze.toes</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#tour">Tour</a></li>
+                <li><a href="#rates">Rates</a></li>
+                <li><a href="#contact">Book</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Beneath the Arch, At My Feet</h1>
+            <p>Where the city’s devotion meets its finest view.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>The Experience</h2>
+            <div class="about-content">
+                <p>A true St. Louis native, I don’t just live life—I curate it. Whether I’m in the kitchen plating a meal with artistic precision or blending my own signature perfumes, I am a woman obsessed with the sensory. I have a hunger for the finer things, and I bring that same meticulous, hungry focus to the men who find themselves at my feet.</p>
+                <p style="margin-top: 1.5rem; font-weight: bold; color: var(--gold-500);">My desires are deep, dark, and endlessly curious. I don’t just want to hear your fantasies—I want to own them. If you have the courage to crave it, I have the power to command it.</p>
+                <p style="margin-top: 1.5rem;">I am the sophisticated edge you didn’t know you were looking for. Are you ready to <strong>surrender to the haze</strong> and let my soles become your entire world? Close your eyes and let your old reality dissolve. The dream is over; it’s time to wake up at my feet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rates">
+        <div class="container">
+            <h2>Offerings</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>The Bud</h3>
+                    <div class="price">$200</div>
+                    <p>60 minutes of focused devotion. A taste of what it means to be mine.</p>
+                </div>
+                <div class="service-card">
+                    <h3>The Bloom</h3>
+                    <div class="price">$300</div>
+                    <p>120 minutes of unhurried bliss. Full immersion into the garden.</p>
+                </div>
+                <div class="service-card">
+                    <h3>The Garden</h3>
+                    <div class="price">$400</div>
+                    <p>180 minutes. A deep exploration of your submission and my command.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Request an Audience</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Fantasy</label>
+                    <textarea placeholder="Tell me how you wish to surrender..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Tribute</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-light); border-top: 1px solid #222;">
+        <p>&copy; 2025 roze.toes | St. Louis, MO</p>
+    </footer>
+
+</body>
+</html>
