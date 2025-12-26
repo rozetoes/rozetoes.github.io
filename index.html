@@ -5,34 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beneath the Arch, At My Feet | roze.toes</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Dark / mysterious palette */
-            --gold-100: #1a1412; 
-            --gold-300: #6b3f1a; 
             --gold-500: #b0753b; 
             --gold-700: #603214; 
-            --sky-100: #071021; 
-            --sky-300: #143447; 
-            --sky-500: #274a5b; 
-            --sky-700: #0a2a36; 
             --text-dark: #e8eef2; 
             --text-light: #a7b3bb; 
             --bg-light: #0b1116; 
             --bg-dark: #050609; 
             --white: #f6f7f9; 
-            --navy: #081f36; 
         }
 
         html { scroll-behavior: smooth; }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background: var(--bg-dark);
@@ -42,129 +29,61 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             background: rgba(5, 6, 9, 0.95);
             backdrop-filter: blur(8px);
             z-index: 1000;
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(176, 117, 59, 0.2);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--gold-500);
-            letter-spacing: 1px;
-            text-transform: lowercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--gold-500); }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold-500); }
 
-        /* Hero Section */
-        #home {
-            height: 100vh;
-            background: linear-gradient(rgba(5, 6, 9, 0.7), rgba(5, 6, 9, 0.7)), 
-                        url('https://images.unsplash.com/photo-1543952170-6927dcc8862d?auto=format&fit=crop&q=80&w=2000'); /* Subtle St Louis Backdrop */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1rem;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--gold-500);
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
         /* Sections */
-        section { padding: 8rem 2rem; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        h2 { font-size: 2.5rem; color: var(--gold-500); margin-bottom: 3rem; text-align: center; text-transform: uppercase; }
+        section { padding: 6rem 2rem; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .container { max-width: 1000px; margin: 0 auto; width: 100%; }
+        h2 { font-size: 2.2rem; color: var(--gold-500); margin-bottom: 2rem; text-align: center; text-transform: uppercase; }
+
+        /* Hero */
+        #home { text-align: center; background: radial-gradient(circle at center, #1a1412 0%, #050609 100%); }
+        #home h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
+        #home p { color: var(--gold-500); font-style: italic; font-size: 1.2rem; }
 
         /* About Panel */
-        .about-content {
-            background: var(--bg-light);
-            padding: 3.5rem;
-            border-radius: 4px;
-            border: 1px solid rgba(176, 117, 59, 0.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+        .about-content { background: var(--bg-light); padding: 2.5rem; border-radius: 8px; border: 1px solid rgba(176, 117, 59, 0.1); }
 
-        /* Rates Styling */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+        /* Gallery Carousel - Simple Layout */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-item img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; border: 1px solid #222; }
 
-        .service-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border: 1px solid rgba(176, 117, 59, 0.1);
-            transition: 0.3s;
-            text-align: center;
-        }
+        /* Tour & Rates Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .card { background: var(--bg-light); padding: 1.5rem; border: 1px solid #222; border-radius: 8px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--gold-500); }
+        .price { font-size: 1.8rem; color: var(--gold-500); margin: 10px 0; font-weight: bold; }
+        .tour-dates { text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--white); }
 
-        .service-card:hover { border-color: var(--gold-500); transform: translateY(-5px); }
-        .price { font-size: 2.5rem; color: var(--gold-500); margin: 1.5rem 0; font-weight: bold; }
-        .service-card h3 { color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Form */
-        .contact-form { max-width: 600px; margin: 0 auto; background: var(--bg-light); padding: 2.5rem; border-radius: 4px; }
-        .form-group { margin-bottom: 1.5rem; }
-        label { display: block; margin-bottom: 0.5rem; color: var(--gold-500); }
-        input, textarea { 
-            width: 100%; padding: 0.8rem; background: var(--bg-dark); border: 1px solid #333; 
-            color: white; border-radius: 2px; 
-        }
-        .btn { 
-            width: 100%; padding: 1rem; background: var(--gold-500); color: var(--white); 
-            border: none; text-transform: uppercase; font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
+        /* Forms & Buttons */
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        input, textarea { width: 100%; padding: 10px; background: #111; border: 1px solid #333; color: white; margin-bottom: 1rem; border-radius: 4px; }
+        .btn { width: 100%; padding: 12px; background: var(--gold-500); color: white; border: none; text-transform: uppercase; font-weight: bold; cursor: pointer; }
         .btn:hover { background: var(--gold-700); }
 
-        /* Mobile */
+        /* CashApp */
+        .gift-box { text-align: center; background: #0b1116; padding: 2rem; border-radius: 8px; border: 1px solid #00d63233; }
+        .cash-link { color: #00d632; font-weight: bold; text-decoration: none; font-size: 1.2rem; }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            section { padding: 4rem 1rem; }
+            #home h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -172,52 +91,70 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo">roze.toes</div>
+            <div class="logo">👣 roze.toes</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#rates">Rates</a></li>
-                <li><a href="#contact">Book</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#gifts">Gifts</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home">
-        <div class="hero-content">
-            <h1>Beneath the Arch, At My Feet</h1>
-            <p>Where the city’s devotion meets its finest view.</p>
-        </div>
+        <h1>Beneath the Arch, At My Feet</h1>
+        <p>St. Louis knows its place. Do you know yours?</p>
     </section>
 
     <section id="about">
         <div class="container">
-            <h2>The Experience</h2>
+            <h2>The Goddess</h2>
             <div class="about-content">
-                <p>A true St. Louis native, I don’t just live life—I curate it. Whether I’m in the kitchen plating a meal with artistic precision or blending my own signature perfumes, I am a woman obsessed with the sensory. I have a hunger for the finer things, and I bring that same meticulous, hungry focus to the men who find themselves at my feet.</p>
-                <p style="margin-top: 1.5rem; font-weight: bold; color: var(--gold-500);">My desires are deep, dark, and endlessly curious. I don’t just want to hear your fantasies—I want to own them. If you have the courage to crave it, I have the power to command it.</p>
-                <p style="margin-top: 1.5rem;">I am the sophisticated edge you didn’t know you were looking for. Are you ready to <strong>surrender to the haze</strong> and let my soles become your entire world? Close your eyes and let your old reality dissolve. The dream is over; it’s time to wake up at my feet.</p>
+                <p>A true St. Louis native, I don’t just live life—I curate it. I am a woman obsessed with the sensory, from the artistic precision of a plated meal to the custom scents of the perfumes I blend. I bring that same meticulous focus to the men who find themselves at my feet.</p>
+                <p style="margin: 1.5rem 0; font-weight: bold; color: var(--gold-500);">If you have the courage to crave it, I have the power to command it.</p>
+                <p>Ready to surrender to the haze? The dream is over; it's time to wake up at my feet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://rozetoesonline.s3.us-east-1.amazonaws.com/photo1.jpg" alt="Photo 1"></div>
+                <div class="gallery-item"><img src="https://rozetoesonline.s3.us-east-1.amazonaws.com/photo2.jpg" alt="Photo 2"></div>
+                <div class="gallery-item"><img src="https://rozetoesonline.s3.us-east-1.amazonaws.com/photo3.jpg" alt="Photo 3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tour">
+        <div class="container">
+            <h2>On Tour</h2>
+            <div class="tour-dates">
+                <p>Memphis, TN — 1/6</p>
+                <p>Atlanta, GA — 1/7</p>
+                <p>Tampa, FL — 1/9 - 1/16</p>
+            </div>
+            <div class="grid">
+                <div class="card"><h3>The Bud (1hr)</h3><div class="price">$200</div></div>
+                <div class="card"><h3>The Bloom (2hr)</h3><div class="price">$300</div></div>
+                <div class="card"><h3>The Garden (3hr)</h3><div class="price">$400</div></div>
+                <div class="card"><h3>The Wildflower (4hr)</h3><div class="price">$500</div></div>
             </div>
         </div>
     </section>
 
     <section id="rates">
         <div class="container">
-            <h2>Offerings</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>The Bud</h3>
-                    <div class="price">$200</div>
-                    <p>60 minutes of focused devotion. A taste of what it means to be mine.</p>
-                </div>
-                <div class="service-card">
-                    <h3>The Bloom</h3>
-                    <div class="price">$300</div>
-                    <p>120 minutes of unhurried bliss. Full immersion into the garden.</p>
-                </div>
-                <div class="service-card">
-                    <h3>The Garden</h3>
-                    <div class="price">$400</div>
-                    <p>180 minutes. A deep exploration of your submission and my command.</p>
+            <h2>Local Rates & Add-Ons</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>The Thorn</h3>
+                    <div class="price">+$200</div>
+                    <p>Add intensity and focused exploration to any session.</p>
                 </div>
             </div>
         </div>
@@ -227,24 +164,26 @@
         <div class="container">
             <h2>Request an Audience</h2>
             <form class="contact-form">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Your Fantasy</label>
-                    <textarea placeholder="Tell me how you wish to surrender..." required></textarea>
-                </div>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Describe your surrender..." rows="5" required></textarea>
                 <button type="submit" class="btn">Send Tribute</button>
             </form>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; color: var(--text-light); border-top: 1px solid #222;">
+    <section id="gifts">
+        <div class="container">
+            <h2>Gifts</h2>
+            <div class="gift-box">
+                <p>Treat the Goddess. Tributes are always noted.</p><br>
+                <p>Cash Tag: <strong>$aglassofroze</strong></p><br>
+                <a href="https://cash.app/$aglassofroze" class="cash-link">💚 Send via Cash App</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid #222;">
         <p>&copy; 2025 roze.toes | St. Louis, MO</p>
     </footer>
 
