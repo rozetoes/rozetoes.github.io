@@ -165,13 +165,66 @@
 
         /* Gallery Carousel */
         .gallery-carousel {
-            border-radius: 4px;
-            border: 1px solid rgba(176, 117, 59, 0.1);
+            position: relative;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(176, 117, 59, 0.08);
+            background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(5,6,9,0.8));
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
         }
 
         .gallery-item {
-            background: #000;
+            min-width: 100%;
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            box-sizing: border-box;
+            background: transparent;
         }
+
+        .gallery-item img {
+            display: block;
+            max-width: 100%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+        }
+
+        .gallery-carousel .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .gallery-carousel .carousel-btn.prev { left: 12px; }
+        .gallery-carousel .carousel-btn.next { right: 12px; }
+
+        .carousel-dots { display:flex; justify-content:center; gap:0.5rem; margin:1rem 0 0; }
+        .carousel-dots .dot { width:10px; height:10px; border-radius:50%; background:var(--text-light); opacity:0.45; border:none; }
+        .carousel-dots .dot.active { background:var(--gold-500); opacity:1; box-shadow:0 0 10px rgba(176,117,59,0.35); transform:scale(1.15); }
 
         .carousel-btn {
             background: linear-gradient(180deg, var(--gold-500), var(--gold-700));
