@@ -374,17 +374,30 @@
 
         .btn:hover { background: var(--gold-700); transform: translateY(-3px); }
 
-        /* Gifts */
+        /* Gifts / Tributes section */
         .gifts-content {
-            border: 1px solid rgba(176, 117, 59, 0.2);
-            background: var(--bg-light);
+            max-width: 720px;
+            margin: 1rem auto;
+            padding: 1.25rem;
+            background: linear-gradient(180deg, rgba(11,17,22,0.45), rgba(5,6,9,0.45));
+            border: 1px solid rgba(176, 117, 59, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            align-items: center;
         }
+
+        .gifts-sub { color: var(--gold-500); margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 1px; }
+        .gifts-note { color: var(--text-light); max-width: 640px; }
 
         .cashapp-qr {
             width: 220px;
             height: 220px;
             border: 2px dashed var(--gold-500);
-            margin: 1rem auto;
+            margin: 0.5rem auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -394,13 +407,26 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.35);
         }
         .cashapp-qr img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
+
+        .cash-tag { color: var(--text-light); font-weight: 700; }
+
+        .cashapp-link {
+            display: inline-block;
+            background: #00a86b;
+            color: #fff;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(0,168,107,0.12);
+            transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+        }
+        .cashapp-link:hover { background: #007a4f; transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,122,79,0.16); }
 
         /* Footer */
         footer {
@@ -583,12 +609,13 @@
         <div class="container">
             <h2>Tributes</h2>
             <div class="gifts-content">
-                <p>Tributes are always noted. Send a gift through Cash App.</p>
+                <h3 class="gifts-sub">Send a Tribute</h3>
+                <p class="gifts-note">Tributes are always appreciated and help keep the dream alive. Use the Cash App QR below or click the button to open Cash App.</p>
                 <div class="cashapp-qr">
-                    <p><img src="https://vatovaonline.s3.us-east-1.amazonaws.com/cashapp.jpg" alt="CashApp QR"></p>
+                    <img src="https://vatovaonline.s3.us-east-1.amazonaws.com/cashapp.jpg" alt="CashApp QR">
                 </div>
-                <p>Cash Tag: <strong>$aglassofroze</strong></p>
-                <a href="https://cash.app/$aglassofroze" target="_blank" class="cashapp-link">💚 Open Cash App</a>
+                <p class="cash-tag">Cash Tag: <strong>$aglassofroze</strong></p>
+                <a href="https://cash.app/$aglassofroze" target="_blank" class="cashapp-link">💚 Send via Cash App</a>
             </div>
         </div>
     </section>
